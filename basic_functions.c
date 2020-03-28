@@ -12,6 +12,7 @@ float compound_intrest(float, float, int, int);
 float centigrade_to_fahrenheit(float);
 float fahrenheit_to_centigrade(float);
 int greatest_of_3_numbers(int, int, int);
+float average_of_3_numbers(int, int, int);
 
 void test_is_even(void);
 void test_is_odd(void);
@@ -24,6 +25,7 @@ void test_compound_intrest(void);
 void test_centigrade_to_fahrenheit(void);
 void test_fahrenheit_to_centigrade(void);
 void test_greatest_of_3_numbers(void);
+void test_average_of_3_numbers(void);
 
 unsigned char is_even(int num)
 {
@@ -91,6 +93,11 @@ int greatest_of_3_numbers(int num1, int num2, int num3)
     return greatestOfTwo > num3 ? greatestOfTwo : num3;
 }
 
+float average_of_3_numbers(int num1, int num2, int num3)
+{
+    return num1 + num2 + num3 / 3.0;
+}
+
 // tests
 
 void test_is_even(void)
@@ -134,7 +141,7 @@ void test_simple_interest(void)
     float principle = 1500, rate = 4.3;
     int time = 6;
     float si = simple_intrest(principle, rate, time);
-    printf("Simple Intrest when principle: %f, rate: %f, time: %d is %f\n", principle, rate, time, si);
+    printf("Simple Intrest when principle: %.2f, rate: %.2f, time: %d is %.2f\n", principle, rate, time, si);
 }
 
 void test_compound_intrest(void)
@@ -142,26 +149,33 @@ void test_compound_intrest(void)
     float principle = 1500, rate = 4.3;
     int time = 6, frequency = 4;
     float ci = compound_intrest(principle, rate, frequency, time);
-    printf("Compound Intrest when principle: %f, rate: %f,  frequency: %d, time: %d is %f\n", principle, rate, frequency, time, ci);
+    printf("Compound Intrest when principle: %.2f, rate: %.2f,  frequency: %d, time: %d is %.2f\n", principle, rate, frequency, time, ci);
 }
 
 void test_centigrade_to_fahrenheit(void)
 {
     float temp = 34;
-    printf("%f centigrade in fahrenheit is %f\n", temp, centigrade_to_fahrenheit(temp));
+    printf("%.2f centigrade in fahrenheit is %.2f\n", temp, centigrade_to_fahrenheit(temp));
 }
 
 void test_fahrenheit_to_centigrade(void)
 {
     float temp = 93;
-    printf("%f fahrenheit in centigrade is %f\n", temp, fahrenheit_to_centigrade(temp));
+    printf("%.2f fahrenheit in centigrade is %.2f\n", temp, fahrenheit_to_centigrade(temp));
 }
 
 void test_greatest_of_3_numbers(void)
 {
     int num1 = 100, num2 = 34, num3 = 13576;
     int greatest = greatest_of_3_numbers(num1, num2, num3);
-    printf("Greatest of %d, %d, %d is %d", num1, num2, num3, greatest);
+    printf("Greatest of %d, %d, %d is %d\n", num1, num2, num3, greatest);
+}
+
+void test_average_of_3_numbers(void)
+{
+    int num1 = 100, num2 = 37, num3 = 1576;
+    float average = average_of_3_numbers(num1, num2, num3);
+    printf("Average of %d, %d, %d is %.2f\n", num1, num2, num3, average);
 }
 
 int main(void)
@@ -177,5 +191,6 @@ int main(void)
     test_centigrade_to_fahrenheit();
     test_fahrenheit_to_centigrade();
     test_greatest_of_3_numbers();
+    test_average_of_3_numbers();
     return 0;
 }
