@@ -1,7 +1,9 @@
 #include <stdio.h>
 
 int getIntegerFromUser(void);
+
 unsigned char is_even(int);
+unsigned char is_odd(int);
 void is_even_main(void);
 void is_odd_main(void);
 
