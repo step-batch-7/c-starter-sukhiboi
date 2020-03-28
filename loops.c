@@ -9,6 +9,7 @@ int evenNumberSeries(int);
 int multiplication_table(int, int);
 int sum_of_n_numbers(int);
 int product_of_n_numbers(int);
+int odd_numbers_in_a_range(int, int);
 
 void test_factorial(void);
 void test_fibonacci(void);
@@ -16,6 +17,7 @@ void test_oddNumberSeries(void);
 void test_evenNumberSeries(void);
 void test_multiplication_table(void);
 void test_product_of_n_numbers(void);
+void test_odd_numbers_in_a_range(void);
 
 int factorial(int num)
 {
@@ -132,6 +134,22 @@ int product_of_n_numbers(int count)
     return product;
 }
 
+int odd_numbers_in_a_range(int start, int last)
+{
+    int current_element;
+    int count = start;
+    while (count < last)
+    {
+        current_element = count;
+        if (is_odd(current_element))
+        {
+            printf("%d ", current_element);
+        }
+        count++;
+    }
+    return current_element;
+}
+
 //tests
 
 void test_factorial(void)
@@ -182,7 +200,14 @@ void test_product_of_n_numbers(void)
 {
     int count = 3;
     printf("Enter %d number to get the product of them\n", count);
-    printf("PRODUCT: %d", product_of_n_numbers(count));
+    printf("PRODUCT: %d\n", product_of_n_numbers(count));
+}
+
+void test_odd_numbers_in_a_range(void)
+{
+    int start = 5, last = 10;
+    printf("Odd terms between %d and %d are ", start, last);
+    odd_numbers_in_a_range(start, last);
 }
 
 int main(void)
@@ -194,5 +219,6 @@ int main(void)
     test_multiplication_table();
     test_sum_of_n_numbers();
     test_product_of_n_numbers();
+    test_odd_numbers_in_a_range();
     return 0;
 };
