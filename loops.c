@@ -4,24 +4,26 @@ int factorial(int);
 int fibonacci(int);
 unsigned char is_even(int);
 unsigned char is_odd(int);
-int oddNumberSeries(int);
-int evenNumberSeries(int);
+int odd_number_series(int);
+int even_number_series(int);
 int multiplication_table(int, int);
 int sum_of_n_numbers(int);
 int product_of_n_numbers(int);
 int odd_numbers_in_a_range(int, int);
 int print_every_nth_term_in_range(int, int, int);
 int sum_of_even_number_in_range(int, int);
+int odd_number_series_backwards(int);
 
 void test_factorial(void);
 void test_fibonacci(void);
-void test_oddNumberSeries(void);
-void test_evenNumberSeries(void);
+void test_odd_number_series(void);
+void test_even_number_series(void);
 void test_multiplication_table(void);
 void test_product_of_n_numbers(void);
 void test_odd_numbers_in_a_range(void);
 void test_print_every_nth_term_in_range(void);
 void test_sum_of_even_number_in_range(void);
+void test_odd_number_series_backwards(void);
 
 int factorial(int num)
 {
@@ -62,7 +64,7 @@ unsigned char is_odd(int num)
     return !is_even(num);
 }
 
-int oddNumberSeries(int limit)
+int odd_number_series(int limit)
 {
     int current_element;
     int count = 1;
@@ -78,7 +80,7 @@ int oddNumberSeries(int limit)
     return current_element;
 }
 
-int evenNumberSeries(int limit)
+int even_number_series(int limit)
 {
     int current_element;
     int count = 1;
@@ -183,6 +185,22 @@ int sum_of_even_number_in_range(int start, int last)
     return sum;
 }
 
+int odd_number_series_backwards(int limit)
+{
+    int current_element;
+    int count = limit;
+    while (count > 1)
+    {
+        current_element = count;
+        if (is_odd(current_element))
+        {
+            printf("%d ", current_element);
+        }
+        count--;
+    }
+    return current_element;
+}
+
 //tests
 
 void test_factorial(void)
@@ -199,19 +217,19 @@ void test_fibonacci(void)
     printf("\n");
 }
 
-void test_oddNumberSeries(void)
+void test_odd_number_series(void)
 {
     int limit = 10;
     printf("Odd terms between 1 and %d are ", limit);
-    oddNumberSeries(limit);
+    odd_number_series(limit);
     printf("\n");
 }
 
-void test_evenNumberSeries(void)
+void test_even_number_series(void)
 {
     int limit = 14;
     printf("Even terms between 1 and %d are ", limit);
-    evenNumberSeries(limit);
+    even_number_series(limit);
     printf("\n");
 }
 
@@ -254,22 +272,30 @@ void test_print_every_nth_term_in_range(void)
 
 void test_sum_of_even_number_in_range(void)
 {
-    int start =5, last = 14;
+    int start = 5, last = 14;
     int sum = sum_of_even_number_in_range(start, last);
-    printf("Sum of all even numbers between %d and %d is %d", start, last, sum);
+    printf("Sum of all even numbers between %d and %d is %d\n", start, last, sum);
+}
+
+void test_odd_number_series_backwards(void)
+{
+    int limit = 10;
+    printf("Odd terms between 1 and %d, backwards are ", limit);
+    odd_number_series_backwards(limit);
 }
 
 int main(void)
 {
     test_factorial();
     test_fibonacci();
-    test_oddNumberSeries();
-    test_evenNumberSeries();
+    test_odd_number_series();
+    test_even_number_series();
     test_multiplication_table();
-    // test_sum_of_n_numbers();
-    // test_product_of_n_numbers();
+    test_sum_of_n_numbers();
+    test_product_of_n_numbers();
     test_odd_numbers_in_a_range();
     test_print_every_nth_term_in_range();
     test_sum_of_even_number_in_range();
+    test_odd_number_series_backwards();
     return 0;
 };
