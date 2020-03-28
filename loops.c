@@ -10,6 +10,7 @@ int multiplication_table(int, int);
 int sum_of_n_numbers(int);
 int product_of_n_numbers(int);
 int odd_numbers_in_a_range(int, int);
+int print_every_nth_term_in_range(int, int, int);
 
 void test_factorial(void);
 void test_fibonacci(void);
@@ -18,6 +19,7 @@ void test_evenNumberSeries(void);
 void test_multiplication_table(void);
 void test_product_of_n_numbers(void);
 void test_odd_numbers_in_a_range(void);
+void test_print_every_nth_term_in_range(void);
 
 int factorial(int num)
 {
@@ -150,6 +152,19 @@ int odd_numbers_in_a_range(int start, int last)
     return current_element;
 }
 
+int print_every_nth_term_in_range(int step, int start, int last)
+{
+    int current_element;
+    int count = start;
+    while (count < last)
+    {
+        current_element = count;
+        printf("%d ", current_element);
+        count += step;
+    }
+    return current_element;
+}
+
 //tests
 
 void test_factorial(void)
@@ -208,6 +223,14 @@ void test_odd_numbers_in_a_range(void)
     int start = 5, last = 10;
     printf("Odd terms between %d and %d are ", start, last);
     odd_numbers_in_a_range(start, last);
+    printf("\n");
+}
+
+void test_print_every_nth_term_in_range(void)
+{
+    int start = 5, last = 10, step = 3;
+    printf("Every %d term between %d and %d is ", step, start, last);
+    print_every_nth_term_in_range(step, start, last);
 }
 
 int main(void)
@@ -220,5 +243,6 @@ int main(void)
     test_sum_of_n_numbers();
     test_product_of_n_numbers();
     test_odd_numbers_in_a_range();
+    test_print_every_nth_term_in_range();
     return 0;
 };
