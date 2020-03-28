@@ -8,13 +8,14 @@ int oddNumberSeries(int);
 int evenNumberSeries(int);
 int multiplication_table(int, int);
 int sum_of_n_numbers(int);
+int product_of_n_numbers(int);
 
 void test_factorial(void);
 void test_fibonacci(void);
 void test_oddNumberSeries(void);
 void test_evenNumberSeries(void);
 void test_multiplication_table(void);
-void test_sum_of_n_numbers(void);
+void test_product_of_n_numbers(void);
 
 int factorial(int num)
 {
@@ -101,19 +102,34 @@ int multiplication_table(int multiplicand, int limit)
     return product;
 }
 
-int sum_of_n_numbers (int count)
+int sum_of_n_numbers(int count)
 {
     int counted = 0;
     int sum = 0;
     while (counted < count)
     {
-        printf("Enter number %d: ", counted+1);
+        printf("Enter number %d: ", counted + 1);
         int num;
         scanf("%d", &num);
         sum += num;
         counted++;
     }
     return sum;
+}
+
+int product_of_n_numbers(int count)
+{
+    int counted = 0;
+    int product = 1;
+    while (counted < count)
+    {
+        printf("Enter number %d: ", counted + 1);
+        int num;
+        scanf("%d", &num);
+        product *= num;
+        counted++;
+    }
+    return product;
 }
 
 //tests
@@ -151,7 +167,7 @@ void test_evenNumberSeries(void)
 void test_multiplication_table(void)
 {
     int multiplicand = 12, limit = 10;
-    printf("Table of %d upto %d terms is as follows ", multiplicand, limit );
+    printf("Table of %d upto %d terms is as follows ", multiplicand, limit);
     multiplication_table(multiplicand, limit);
 }
 
@@ -159,8 +175,14 @@ void test_sum_of_n_numbers(void)
 {
     int count = 3;
     printf("Enter %d number to get the sum of them\n", count);
-    int sum = sum_of_n_numbers(count);
-    printf("SUM: %d", sum);
+    printf("SUM: %d\n", sum_of_n_numbers(count));
+}
+
+void test_product_of_n_numbers(void)
+{
+    int count = 3;
+    printf("Enter %d number to get the product of them\n", count);
+    printf("PRODUCT: %d", product_of_n_numbers(count));
 }
 
 int main(void)
@@ -171,5 +193,6 @@ int main(void)
     test_evenNumberSeries();
     test_multiplication_table();
     test_sum_of_n_numbers();
+    test_product_of_n_numbers();
     return 0;
 };
