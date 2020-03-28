@@ -6,11 +6,13 @@ unsigned char is_even(int);
 unsigned char is_odd(int);
 int oddNumberSeries(int);
 int evenNumberSeries(int);
+int multiplication_table(int, int);
 
 void test_factorial(void);
 void test_fibonacci(void);
 void test_oddNumberSeries(void);
 void test_evenNumberSeries(void);
+void test_multiplication_table(void);
 
 int factorial(int num)
 {
@@ -83,6 +85,20 @@ int evenNumberSeries(int limit)
     return current_element;
 }
 
+int multiplication_table(int multiplicand, int limit)
+{
+    int multiplier = 1;
+    int product = multiplicand;
+    printf("\n");
+    while (multiplier <= limit)
+    {
+        product = multiplicand * multiplier;
+        printf("%d x %d = %d\n", multiplicand, multiplier, product);
+        multiplier++;
+    }
+    return product;
+}
+
 //tests
 
 void test_factorial(void)
@@ -115,11 +131,19 @@ void test_evenNumberSeries(void)
     printf("\n");
 }
 
+void test_multiplication_table(void)
+{
+    int multiplicand = 12, limit = 10;
+    printf("Table of %d upto %d terms is as follows ", multiplicand, limit );
+    multiplication_table(multiplicand, limit);
+}
+
 int main(void)
 {
     test_factorial();
     test_fibonacci();
     test_oddNumberSeries();
     test_evenNumberSeries();
+    test_multiplication_table();
     return 0;
 };
