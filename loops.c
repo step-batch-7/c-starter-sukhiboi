@@ -5,10 +5,12 @@ int fibonacci(int);
 unsigned char is_even(int);
 unsigned char is_odd(int);
 int oddNumberSeries(int);
+int evenNumberSeries(int);
 
 void test_factorial(void);
 void test_fibonacci(void);
 void test_oddNumberSeries(void);
+void test_evenNumberSeries(void);
 
 int factorial(int num)
 {
@@ -49,13 +51,30 @@ unsigned char is_odd(int num)
     return !is_even(num);
 }
 
-int oddNumberSeries(int limit) {
+int oddNumberSeries(int limit)
+{
     int current_element;
     int count = 1;
     while (count < limit)
     {
         current_element = count;
         if (is_odd(current_element))
+        {
+            printf("%d ", current_element);
+        }
+        count++;
+    }
+    return current_element;
+}
+
+int evenNumberSeries(int limit)
+{
+    int current_element;
+    int count = 1;
+    while (count < limit)
+    {
+        current_element = count;
+        if (is_even(current_element))
         {
             printf("%d ", current_element);
         }
@@ -88,10 +107,19 @@ void test_oddNumberSeries(void)
     printf("\n");
 }
 
+void test_evenNumberSeries(void)
+{
+    int limit = 10;
+    printf("Even terms between 1 and %d are ", limit);
+    evenNumberSeries(limit);
+    printf("\n");
+}
+
 int main(void)
 {
     test_factorial();
     test_fibonacci();
     test_oddNumberSeries();
+    test_evenNumberSeries();
     return 0;
 };
