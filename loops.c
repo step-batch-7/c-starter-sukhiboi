@@ -11,6 +11,7 @@ int sum_of_n_numbers(int);
 int product_of_n_numbers(int);
 int odd_numbers_in_a_range(int, int);
 int print_every_nth_term_in_range(int, int, int);
+int sum_of_even_number_in_range(int, int);
 
 void test_factorial(void);
 void test_fibonacci(void);
@@ -20,6 +21,7 @@ void test_multiplication_table(void);
 void test_product_of_n_numbers(void);
 void test_odd_numbers_in_a_range(void);
 void test_print_every_nth_term_in_range(void);
+void test_sum_of_even_number_in_range(void);
 
 int factorial(int num)
 {
@@ -165,6 +167,22 @@ int print_every_nth_term_in_range(int step, int start, int last)
     return current_element;
 }
 
+int sum_of_even_number_in_range(int start, int last)
+{
+    int sum = 0;
+    int count = start;
+    while (count < last)
+    {
+        int current_element = count;
+        if (is_even(current_element))
+        {
+            sum += current_element;
+        }
+        count++;
+    }
+    return sum;
+}
+
 //tests
 
 void test_factorial(void)
@@ -191,7 +209,7 @@ void test_oddNumberSeries(void)
 
 void test_evenNumberSeries(void)
 {
-    int limit = 10;
+    int limit = 14;
     printf("Even terms between 1 and %d are ", limit);
     evenNumberSeries(limit);
     printf("\n");
@@ -228,9 +246,17 @@ void test_odd_numbers_in_a_range(void)
 
 void test_print_every_nth_term_in_range(void)
 {
-    int start = 5, last = 10, step = 3;
+    int start = 1, last = 70, step = 7;
     printf("Every %d term between %d and %d is ", step, start, last);
     print_every_nth_term_in_range(step, start, last);
+    printf("\n");
+}
+
+void test_sum_of_even_number_in_range(void)
+{
+    int start =5, last = 14;
+    int sum = sum_of_even_number_in_range(start, last);
+    printf("Sum of all even numbers between %d and %d is %d", start, last, sum);
 }
 
 int main(void)
@@ -240,9 +266,10 @@ int main(void)
     test_oddNumberSeries();
     test_evenNumberSeries();
     test_multiplication_table();
-    test_sum_of_n_numbers();
-    test_product_of_n_numbers();
+    // test_sum_of_n_numbers();
+    // test_product_of_n_numbers();
     test_odd_numbers_in_a_range();
     test_print_every_nth_term_in_range();
+    test_sum_of_even_number_in_range();
     return 0;
 };
