@@ -11,6 +11,7 @@ float simple_intrest(float, float, int);
 float compound_intrest(float, float, int, int);
 float centigrade_to_fahrenheit(float);
 float fahrenheit_to_centigrade(float);
+int greatest_of_3_numbers(int, int, int);
 
 void test_is_even(void);
 void test_is_odd(void);
@@ -22,6 +23,7 @@ void test_simple_interest(void);
 void test_compound_intrest(void);
 void test_centigrade_to_fahrenheit(void);
 void test_fahrenheit_to_centigrade(void);
+void test_greatest_of_3_numbers(void);
 
 unsigned char is_even(int num)
 {
@@ -81,6 +83,12 @@ float centigrade_to_fahrenheit(float temp)
 float fahrenheit_to_centigrade(float temp)
 {
     return round((temp - 32) * 5 / 9);
+}
+
+int greatest_of_3_numbers(int num1, int num2, int num3)
+{
+    int greatestOfTwo = num1 > num2 ? num1 : num2;
+    return greatestOfTwo > num3 ? greatestOfTwo : num3;
 }
 
 // tests
@@ -143,9 +151,17 @@ void test_centigrade_to_fahrenheit(void)
     printf("%f centigrade in fahrenheit is %f\n", temp, centigrade_to_fahrenheit(temp));
 }
 
-void test_fahrenheit_to_centigrade(void) {
+void test_fahrenheit_to_centigrade(void)
+{
     float temp = 93;
     printf("%f fahrenheit in centigrade is %f\n", temp, fahrenheit_to_centigrade(temp));
+}
+
+void test_greatest_of_3_numbers(void)
+{
+    int num1 = 100, num2 = 34, num3 = 13576;
+    int greatest = greatest_of_3_numbers(num1, num2, num3);
+    printf("Greatest of %d, %d, %d is %d", num1, num2, num3, greatest);
 }
 
 int main(void)
@@ -160,5 +176,6 @@ int main(void)
     test_compound_intrest();
     test_centigrade_to_fahrenheit();
     test_fahrenheit_to_centigrade();
+    test_greatest_of_3_numbers();
     return 0;
 }
